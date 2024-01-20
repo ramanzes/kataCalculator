@@ -1,5 +1,6 @@
 
 import java.util.Map;
+import java.util.Scanner;
 import java.util.TreeMap;
 
 class Calculator {
@@ -23,24 +24,40 @@ class Calculator {
     }};
 
     public static void main(String[] args) {
-        if (args.length != 1) {
-            throw new IllegalArgumentException("Применение: Calculator \"выражение\"");
-        }
-        String expression = args[0];
-        String[] parts = expression.split(" ");
-        if (parts.length != 3) {
-            throw new IllegalArgumentException("Выражение должно содержать два операнда и один оператор");
-        }
+//        if (args.length != 1) {
+//            throw new IllegalArgumentException("Применение: Calculator \"выражение\"");
+//        }
+//        String expression = args[0];
+//        String[] parts = expression.split(" ");
+//        if (parts.length != 3) {
+//            throw new IllegalArgumentException("Выражение должно содержать два операнда и один оператор");
+//        }
+//
+//        NumeralSystem numeralSystem = getNumeralSystem(parts[0], parts[2]);
+//
+//        int a = convertToArabic(parts[0], numeralSystem);
+//        int b = convertToArabic(parts[2], numeralSystem);
+//        char op = parts[1].charAt(0);
+//        int result = calculate(a, op, b);
+        String s1,s2,s3;
 
-        NumeralSystem numeralSystem = getNumeralSystem(parts[0], parts[2]);
+        Scanner in = new Scanner(System.in);
+        System.out.print("Операнд 1 >> "); s1=in.nextLine();
+        System.out.print("Операнд 2 >> "); s2=in.nextLine();
+        System.out.print("Операция >> "); s3=in.nextLine();
 
-        int a = convertToArabic(parts[0], numeralSystem);
-        int b = convertToArabic(parts[2], numeralSystem);
-        char op = parts[1].charAt(0);
+        NumeralSystem numeralSystem = getNumeralSystem(s1, s2);
+
+        int a = convertToArabic(s1, numeralSystem);
+        int b = convertToArabic(s2, numeralSystem);
+        char op = s3.charAt(0);
+
         int result = calculate(a, op, b);
 
+
+
         String output = convertToNumeral(result, numeralSystem);
-        System.out.println(output);
+        System.out.println("Результат операции = "+output);
     }
 
     private static NumeralSystem getNumeralSystem(String a, String b) {
