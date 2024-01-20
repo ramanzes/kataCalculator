@@ -45,7 +45,7 @@ class Calculator {
         System.out.print("Операнд 1 >> "); s1=in.nextLine();
         System.out.print("Операнд 2 >> "); s2=in.nextLine();
         System.out.print("Операция >> "); s3=in.nextLine();
-
+        in.close();
         NumeralSystem numeralSystem = getNumeralSystem(s1, s2);
 
         int a = convertToArabic(s1, numeralSystem);
